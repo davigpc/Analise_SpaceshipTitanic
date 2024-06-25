@@ -73,19 +73,17 @@ with right_column:
 labels = ['Serviço de Quarto', 'Praça de Alimentação', 'Shopping', 'Spa', 'Realidade Virtual']
 sizes = [roomservice_sales, foodcourt_sales, shopping_sales, spa_sales, vrdeck_sales]
 colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99', '#c2c2f0']
-explode = (0.1, 0, 0, 0, 0)  # explode 1st slice
+explode = (0.1, 0, 0, 0, 0)
 
 fig1, ax1 = plt.subplots(figsize=(2, 2))
 ax1.pie(sizes, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%',
         shadow=True, startangle=140, textprops={'color':"w", 'fontsize':5})
-ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax1.axis('equal')
 
-# Configurar fundo transparente
 fig1.patch.set_alpha(0.0)
 ax1.patch.set_alpha(0.0)
 
 st.pyplot(fig1)
-
 
 # Clientes
 st.title("Tripulação")
@@ -105,7 +103,8 @@ with right_column:
     st.subheader("Sono Criogênico")
     st.write(cryosleep_count)
 
-# Gráfico de barras para a contagem de tripulantes por HomePlanet
+# Gráfico de barras para a contagem de tripulantes
+
 st.subheader("Contagem de Tripulantes por Planeta Natal")
 fig2, ax2 = plt.subplots()
 sns.countplot(data=df, x='HomePlanet', palette='viridis', ax=ax2)
@@ -114,11 +113,9 @@ ax2.set_xlabel("Planeta Natal", color='white')
 ax2.set_ylabel("Contagem de Tripulantes", color='white')
 ax2.tick_params(colors='white')
 
-# Configurar fundo transparente
 fig2.patch.set_alpha(0.0)
 ax2.patch.set_alpha(0.0)
 
-# Ajustar o tamanho do texto
 ax2.title.set_fontsize(16)
 ax2.xaxis.label.set_fontsize(14)
 ax2.yaxis.label.set_fontsize(14)
