@@ -1,4 +1,5 @@
 import pandas as pd
+import seaborn as sns
 import streamlit as st
 import matplotlib.pyplot as plt
 
@@ -103,3 +104,24 @@ with left_column:
 with right_column:
     st.subheader("Sono Criogênico")
     st.write(cryosleep_count)
+
+# Gráfico de barras para a contagem de tripulantes por HomePlanet
+st.subheader("Contagem de Tripulantes por Planeta Natal")
+fig2, ax2 = plt.subplots()
+sns.countplot(data=df, x='HomePlanet', palette='viridis', ax=ax2)
+ax2.set_title("Contagem de Tripulantes por Planeta Natal", color='white')
+ax2.set_xlabel("Planeta Natal", color='white')
+ax2.set_ylabel("Contagem de Tripulantes", color='white')
+ax2.tick_params(colors='white')
+
+# Configurar fundo transparente
+fig2.patch.set_alpha(0.0)
+ax2.patch.set_alpha(0.0)
+
+# Ajustar o tamanho do texto
+ax2.title.set_fontsize(16)
+ax2.xaxis.label.set_fontsize(14)
+ax2.yaxis.label.set_fontsize(14)
+ax2.tick_params(labelsize=12)
+
+st.pyplot(fig2)
